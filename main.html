@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <title>قرآن كريم</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        transition: 0.4s ease;
+        min-height: 100vh;
+      }
+
+      :root {
+        --bg: #f6f1e5;
+        --card: #ffffff;
+        --primary: #176b55;
+        --special: #a98235;
+        --text: #173b30;
+        --muted: #718176;
+        --border: #e4ddcd;
+        --section: #eef2ec;
+      }
+
+      .dark-mode {
+        --bg: #0b1f19;
+        --card: #1b4035;
+        --primary: #d6b56d;
+        --special: #a98235;
+        --text: #a9b8af;
+        --muted: #718176;
+        --border: #315447;
+        --section: #12352b;
+      }
+
+      /******header***/
+      header {
+        display: flex;
+        width: 100%;
+        background-color: var(--section);
+        justify-content: space-around;
+      }
+      header .logo {
+        font-size: 32px;
+        font-weight: 900;
+        padding: 6px;
+        color: var(--special);
+      }
+      header .theme-btn {
+        border: none;
+        font-size: 30px;
+        background-color: transparent;
+      }
+
+      main {
+        max-width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+      }
+      .box {
+        text-align: center;
+        align-items: center;
+        background-color: var(--card);
+        border: 2px solid var(--border);
+        padding: 10px;
+        border-radius: 20px;
+      }
+      .box h1 {
+        margin-bottom: 20px;
+        color: var(--primary);
+        font-size: 50px;
+      }
+      .box .line {
+        height: 2px;
+        background-color: var(--text);
+        width: 80%;
+        border-radius: 50%;
+      }
+
+      select {
+        margin-top: 12px;
+        margin-bottom: 12px;
+        font-size: 17px;
+        border-radius: 20px;
+        text-align: center;
+        padding: 10px;
+        margin-right: 5px;
+        width: 100%;
+      }
+      select option {
+        padding: 4px;
+        color: var(--text);
+      }
+      audio {
+        margin: 20px auto;
+        width: 80%;
+      }
+
+      .social-icons {
+        margin: 30px;
+      }
+      .social-icons a {
+        font-size: 30px;
+        margin-right: 40px;
+        text-decoration: none;
+        color: var(--special);
+      }
+
+      p {
+        color: var(--text);
+        margin-top: 40px;
+        font-size: 18px;
+      }
+      span {
+        color: var(--special);
+      }
+
+      .back {
+        background-color: var(--primary);
+        padding: 10px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--section);
+        display: inline-block;
+        margin-top: 30px;
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        .box {
+          max-width: 92%;
+        }
+        .social-icons a {
+          font-size: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">قرآن كريم</div>
+      <button class="theme-btn" id="themeBtn">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+    </header>
+
+    <main>
+      <div class="box">
+        <h1>قرآن كريم</h1>
+        <div class="line"></div>
+        <!--اختر القارئ-->
+        <select name="" id="chooseReciter">
+          <option value="" disabled selected>اختر قارئ</option>
+        </select>
+        <!--اختار الرواية-->
+        <select name="" id="chooseMoshaf">
+          <option value="" disabled selected>اختر الرواية</option>
+        </select>
+        <!--اختار السورة-->
+        <select name="" id="chooseSorah">
+          <option value="" disabled selected>اختر السوره</option>
+        </select>
+        <div class="line"></div>
+        <audio id="audioPlayer" controls></audio>
+        <div class="social-icons">
+         <a href="https://www.facebook.com/share/1Lg5QoAAvM/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+         <a href="https://www.instagram.com/ahmed.dev1?igsi=a2QzdGV0d2RpMnVu"target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+         <a href="https://github.com/ahmedtopone111-hash" target="_blank"><i class="fa-brands fa-github"></i></a>
+
+        </div>
+        <p>تم التطوير بواسطة<span>Leo</span></p>
+        <a href="index.html" class="back">back</a>
+      </div>
+    </main>
+    <script>
+      const Apiurl = "https://mp3quran.net/api/v3";
+      const reciters = "reciters";
+      const language = "ar";
+
+      async function getReciters() {
+        const chooseReciter = document.querySelector("#chooseReciter");
+        const res = await fetch(`https://mp3quran.net/api/v3/reciters?language=ar`,);
+        const data = await res.json();
+
+        chooseReciter.innerHtml = `<option value="">اختر قارئ</option>`
+        data.reciters.forEach((reciter) => {
+          chooseReciter.innerHTML += `<option value="${reciter.id}">${reciter.name}</option>`;
+        });
+
+        chooseReciter.addEventListener("change", (e) => getMoshaf(e.target.value),
+        );
+      }
+      getReciters();
+
+      async function getMoshaf(reciter) {
+        const chooseMoshaf = document.querySelector("#chooseMoshaf");
+
+        const res = await fetch(
+          `https://mp3quran.net/api/v3/reciters?language=ar&reciter=${reciter}`,
+        );
+        const data = await res.json();
+        const moshafs = data.reciters[0].moshaf;
+
+        chooseMoshaf.innerHTML = `<option value="" disabled selected>اختر الرواية</option>`;
+
+        moshafs.forEach((moshaf) => {
+          chooseMoshaf.innerHTML += `<option value="${moshaf.id}"data-server="${moshaf.server}"data-surahList="${moshaf.surah_list}">${moshaf.name}</option>`;
+        });
+
+    
+      chooseMoshaf.addEventListener("change", (e) => {
+        const selectedMoshaf = chooseMoshaf.options[chooseMoshaf.selectedIndex]
+        const surahServer = selectedMoshaf.dataset.server;
+        const surahList = selectedMoshaf.dataset.surahlist;
+
+        getSurah(surahServer,surahList)
+      })
+
+      }
+
+      async function getSurah(surahServer,surahList) {
+        const chooseSorah = document.querySelector('#chooseSorah')
+
+
+
+        const res = await fetch(`https://mp3quran.net/api/v3/suwar?language=ar`);
+        const data = await res.json();
+        const surahNames = data.suwar
+
+       surahList = surahList.split(',')
+
+
+           chooseSorah.innerHTML = `<option value="">اختر سورة</option>`
+
+       surahList.forEach(surah => {
+        const padSurah = surah.padStart(3, '0')
+        surahNames.forEach(surahName => {
+          if (surahName.id == surah) {
+            
+        chooseSorah.innerHTML += `<option value="${surahServer}${padSurah}.mp3">${surahName.name}</option>`;
+
+
+          }
+        })
+       });
+
+       chooseSorah.addEventListener('change', e => {
+        const selectedSurah = chooseSorah.options[chooseSorah.selectedIndex]
+        playSurah(selectedSurah.value)
+       })
+
+      }
+
+function playSurah(surahMp3) {
+  const audioPlayer = document.querySelector('#audioPlayer')
+  audioPlayer.src = surahMp3
+  audioPlayer.play();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+      const ThemeBtn = document.getElementById("themeBtn");
+      ThemeBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark-mode");
+      });
+    </script>
+  </body>
+</html>

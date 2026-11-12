@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قرآن كريم</title>
+    <link rel="icon" type="image/png" href="https://www.google.com/imgres?q=quran.png&imgurl=https%3A%2F%2Fsimilarpng.com%2F_next%2Fimage%2F%3Furl%3Dhttps%253A%252F%252Fimage.similarpng.com%252Ffile%252Fsimilarpng%252Fvery-thumbnail%252F2020%252F05%252FQuran-PNG.png%26w%3D3840%26q%3D75&imgrefurl=https%3A%2F%2Fsimilarpng.com%2Fquran-png%2F&docid=N3i2USJWnhE8bM&tbnid=aQilOVqbE8-EZM&vet=12ahUKEwjdp-y77oKYAxWAzgIHHdenFJAQnPAOegQIOhAA..i&w=600&h=720&hcb=2&ved=2ahUKEwjdp-y77oKYAxWAzgIHHdenFJAQnPAOegQIOhAA" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+      /***basic***/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      /* Light Mode */
+      :root {
+        --bg: #f8f7f1;
+        --section-bg: #eef2ec;
+        --card: #ffffff;
+
+        --main-text: #16352a;
+        --text: #718078;
+
+        --primary: #246b50;
+        --secondary: #b89550;
+
+        --border: #dce5dc;
+        --hover: #ddebe1;
+        --icon: #246b50;
+      }
+
+      /* Dark Mode */
+      .dark-mode {
+        --bg: #0b1f19;
+        --section-bg: #12352b;
+        --card: #1b4035;
+
+        --main-text: #f5f1e8;
+        --text: #a9b8af;
+
+        --primary: #d6b56d;
+        --secondary: #e8d5a3;
+
+        --border: #315447;
+        --hover: #285344;
+        --icon: #e8d5a3;
+      }
+
+      body {
+        background-color: var(--bg);
+        transition: 0.7s ease;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        font-family:  "Tajawal", sans-serif;
+      }
+
+      section {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+
+      /**Basic End**/
+
+      /**Start  header & logo & theme button**/
+
+      header .logo {
+        width: 100%;
+        background-color: var(--section-bg);
+        transition: 0.5s ease;
+        display: flex;
+        justify-content: space-around;
+      }
+
+      header .logo a {
+        text-decoration: none;
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--secondary);
+        padding: 10px;
+      }
+      h3, header .logo span {
+    font-family: "Cairo", sans-serif;
+      }
+
+      header .logo span {
+        font-size: 32px;
+        font-weight: 900;
+        color: var(--primary);
+        padding: 10px;
+        transition: 0.7s ease;
+      }
+      header .logo span:hover {
+        color: var(--secondary);
+      }
+
+      header .theme-btn {
+        border: none;
+        color: var(--main-text);
+        background-color: transparent;
+        font-size: 24px;
+        font-weight: 600;
+        align-items: center;
+        cursor: pointer;
+      }
+      header .theme-btn:hover {
+        color: var(--text);
+      }
+
+      /**End  header & logo & theme button**/
+
+      /**Start main page **/
+
+      .main-box {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        margin: 40px auto 0;
+        flex-direction: column;
+        max-width: 600px;
+        flex: 1;
+      }
+
+      .card {
+        margin-bottom: 30px;
+        padding: 20px 40px;
+        width: 100%;
+        background-color: var(--card);
+        text-decoration: none;
+        text-align: center;
+        border: 2px solid var(--border);
+        border-radius: 12px;
+        transition: 0.4s ease;
+      }
+      .card:hover {
+        transform: scale(1.1);
+        border: 2px solid var(--icon);
+      }
+
+      .card h3 {
+        color: var(--primary);
+        font-size: 20px;
+        font-weight: 800;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+      }
+
+      .card p {
+        font-weight: 500;
+        font-size: 14px;
+        color: var(--main-text);
+      }
+      /***End  main page***/
+
+      /**start  footer**/
+      footer {
+        display: inline-block;
+        width: 100%;
+        background-color: var(--section-bg);
+        border: 1px solid var(--border);
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 105px;
+        transition: 0.3s ease;
+      }
+
+      footer p {
+        color: var(--main-text);
+        font-size: 24px;
+        font-weight: 500;
+        padding: 8px;
+      }
+
+      footer p span {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      footer .social-icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      footer .social-icons a {
+        text-decoration: none;
+        color: var(--icon);
+        font-size: 20px;
+        font-weight: 800;
+      /*  margin-right: 30px;*/
+        transition: 0.5s ease;
+      }
+      footer .social-icons a:hover {
+        color: var(--text);
+      }
+      /**snd  footer**/
+      
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href="#">Leo</a>
+        <button class="theme-btn" id="theme-btn">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <span>قرآن كريم</span>
+      </div>
+    </header>
+    <section>
+      <div class="main-box">
+        <a href="main.html" class="card">
+          <h3>استماع وتحميل</h3>
+          <p>استمع لقارئك المفضل بكل الرويات </p>
+        </a>
+        <a href="#" class="card">
+          <h3>غير مستخدمه</h3>
+          <p></p>
+        </a>
+        <a href="about.html" class="card">
+          <h3>حول المطور</h3>
+          <p>بعض المعلومات عن مطور هذا الموقع</p>
+        </a>
+        <a href="contact.html" class="card">
+          <h3>التواصل</h3>
+          <p>المشاكل و الاقتراحات</p>
+        </a>
+      </div>
+      <footer>
+        <p>تم التطوير بواسطة <span>Leo</span> <i class="fa-solid fa-code"></i></p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/share/1Lg5QoAAvM/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/ahmed.dev1?igsi=a2QzdGV0d2RpMnVu"target="_blank"><i class="fa-brands fa-square-instagram"></i></a>
+          <a href="https://github.com/ahmedtopone111-hash" target="_blank"><i class="fa-brands fa-github"></i></a>
+        </div>
+      </footer>
+    </section>
+    <script>
+      const themeBtn = document.getElementById("theme-btn");
+const themeIcon = themeBtn.querySelector("i");
+
+themeBtn.addEventListener("click", () => {
+  document.documentElement.classList.toggle("dark-mode");
+
+  if (document.documentElement.classList.contains("dark-mode")) {
+    themeIcon.className = "fa-solid fa-sun";
+  } else {
+    themeIcon.className = "fa-solid fa-moon";
+  }
+
+  console.log("Theme changed");
+});
+        </script>
+  </body>
+</html>
