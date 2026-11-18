@@ -1,0 +1,275 @@
+
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+
+    <!-- Arabic Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>قرآن كريم</title>
+
+    <style>
+    
+    /**Basic Start**/  
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+/******light mode*****/
+      
+     :root {
+        --bg: #f8f7f1;
+        --section-bg: #eef2ec;
+        --card: #ffffff;
+        --main-text: #16352a;
+        --text: #718078;
+        --primary: #246b50;
+        --secondary: #b89550;
+        --border: #dce5dc;
+        --hover: #ddebe1;
+        --icon: #246b50;
+      }
+
+/*******Dark mode********/ 
+      .dark-mode {
+        --bg: #0b1f19;
+        --section-bg: #12352b;
+        --card: #1b4035;
+        --main-text: #f5f1e8;
+        --text: #a9b8af;
+        --primary: #d6b56d;
+        --secondary: #e8d5a3;
+        --border: #315447;
+        --hover: #285344;
+        --icon: #e8d5a3;
+      }
+
+      
+      body {
+        background-color: var(--bg);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        font-family: "Cairo", sans-serif;
+        transition: 0.4s ease;
+      }
+
+      /**Basic end**/
+    
+    /***Main work***/  
+      
+      .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid var(--border);
+        border-radius: 25px;
+        max-width: 750px;
+        width: 100%;
+        text-align: center;
+        padding: 25px;
+        background-color: var(--section-bg);
+        transition: 0.4s ease;
+      }
+
+      .contact h1 {
+        color: var(--main-text);
+        font-size: 32px;
+        font-weight: 900;
+        margin-bottom: 25px;
+      }
+
+      .contact h1 span {
+        color: var(--primary);
+      }
+
+      .contact p {
+        color: var(--text);
+        margin-bottom: 20px;
+        font-size: 17px;
+        line-height: 1.9;
+      }
+
+      .contact .btn-11 {
+        align-self: flex-start;
+        border: none;
+        background-color: var(--secondary);
+        color: var(--bg);
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .contact .btn-11:hover {
+        transform: rotate(15deg);
+      }
+
+      .email-title {
+        font-size: 22px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        color: var(--secondary);
+      }
+
+      .email {
+        direction: ltr;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary);
+        border: 1px solid var(--main-text);
+        padding: 12px 20px;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        transition: 0.3s ease;
+      }
+
+      .email:hover {
+        background-color: var(--hover);
+        transform: scale(1.04);
+      }
+
+      .thanks {
+        font-size: 18px;
+        font-weight: 800;
+        color: var(--primary);
+        margin: 20px;
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        margin: 20px 0;
+      }
+
+      .social-icons a {
+        text-decoration: none;
+        color: var(--main-text);
+        font-size: 28px;
+        transition: 0.3s ease;
+      }
+
+      .social-icons a:hover {
+        transform: translateY(-5px);
+        color: var(--primary);
+      }
+
+      .back-btn {
+        width: 100%;
+        border: none;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        background-color: var(--icon);
+        color: var(--bg);
+        border-radius: 10px;
+        padding: 10px;
+        transition: 0.3s ease;
+        cursor: pointer;
+      }
+
+      .back-btn:hover {
+        background-color: var(--primary);
+      }
+
+      @media (max-width: 600px) {
+        .contact {
+          padding: 20px 15px;
+        }
+
+        .contact h1 {
+          font-size: 25px;
+        }
+
+        .contact p {
+          font-size: 15px;
+        }
+
+        .email {
+          font-size: 13px;
+          padding: 10px;
+        }
+
+        .social-icons {
+          gap: 30px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main class="contact">
+
+      <button class="btn-11" id="btn" aria-label="تغيير المظهر">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <h1><span>ر</span>سالة خاصة ❤️</h1>
+
+      <p>
+        أهلاً بك! 👋<br>
+        شكراً لزيارتك موقعي!
+      </p>
+
+      <p>
+        إذا كان لديك أي اقتراحات، أو لاحظت مشكلة تحتاج إلى إصلاح،
+        أو لديك فكرة تود مشاركتها، فسيسعدني سماع رأيك!
+      </p>
+
+      <div class="email-title">تواصل معي عبر البريد الإلكتروني:</div>
+
+      <a href="mailto:ahmedtopone111@gmail.com" class="email">
+        ahmedtopone111@gmail.com
+      </a>
+
+      <div class="thanks">شكراً لزيارتك! ❤️</div>
+
+      <div class="social-icons">
+        <a href="https://www.facebook.com/share/1Lg5QoAAvM/" target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+
+        <a href="https://www.instagram.com/ahmed.dev1" target="_blank" >
+          <i class="fa-brands fa-square-instagram"></i>
+        </a>
+
+        <a href="https://github.com/ahmedtopone111-hash" target="_blank">
+          <i class="fa-brands fa-github"></i>
+        </a>
+      </div>
+
+      <a href="index.html" class="back-btn">العودة للرئيسية</a>
+
+    </main>
+
+    <script>
+       const ThemeBtn = document.getElementById('btn');
+      const ThemeIcon = ThemeBtn.querySelector('i');
+
+      ThemeBtn.addEventListener("click", () => {
+        document.documentElement.classList.toggle('dark-mode');
+
+        if (document.documentElement.classList.contains('dark-mode')) {
+          ThemeIcon.className = 'fa-solid fa-sun';
+        } else {
+          ThemeIcon.className = 'fa-solid fa-moon';
+        }
+      });
+    </script>
+
+  </body>
+</html>
